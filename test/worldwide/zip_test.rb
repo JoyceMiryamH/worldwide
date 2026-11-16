@@ -956,6 +956,13 @@ module Worldwide
       end
     end
 
+    test "outcode returns the first portion for GG, IM and JE when extra characters follow a complete postcode" do
+      [:GB, :GG, :IM, :JE].each do |country_code|
+        assert_equal "E1", Zip.outcode(country_code: country_code, zip: "E1 6AN 1AA")
+        assert_equal "GL7", Zip.outcode(country_code: country_code, zip: "GL7 1AA 1AA")
+      end
+    end
+
     test "outcode returns the full zip for countries that don't have a split postcode format" do
       [
         [:FR, "75008"],
