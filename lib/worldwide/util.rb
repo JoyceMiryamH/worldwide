@@ -30,7 +30,7 @@ module Worldwide
     HANDLE_QUOTES_AND_BRACKETS = "'\"()[]"
     private_constant :HANDLE_QUOTES_AND_BRACKETS
 
-    HANDLE_SEPARATOR = /[^\p{Word}\u200D\p{Extended_Pictographic}\p{Emoji_Modifier}]+/
+    HANDLE_SEPARATOR = /(?:(?!\p{Word}|\u200D|\p{Extended_Pictographic}|\p{Emoji_Modifier}).)+/m
     private_constant :HANDLE_SEPARATOR
 
     HANDLE_EDGE_HYPHENS = /\A-+|-+\z/
