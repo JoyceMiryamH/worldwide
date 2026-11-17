@@ -334,9 +334,9 @@ module Worldwide
       assert_equal false, region("CA-NT").valid_zip?("K1A444")
     end
 
-    # Behaviour that Region already has, as CountryDb::Zone used it
+    # Zone attributes and lookups
 
-    test "the attributes that CountryDb::Zone delegates to a Region have the expected values" do
+    test "zones have the expected attribute values" do
       assert_equal ["PQ"], region("CA-QC").code_alternates
       assert_equal "Ontario", region("CA-ON").legacy_name
       assert_equal ["Al Fayyūm"], region("EG-FYM").name_alternates

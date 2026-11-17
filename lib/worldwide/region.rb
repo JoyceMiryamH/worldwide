@@ -618,7 +618,7 @@ module Worldwide
     # "13" matches the region with legacy code "JP-13".
     #
     # The comparison ignores the case of ASCII letters.
-    # This is a hot path for callers that look a region up by code, so it allocates no strings.
+    # Callers may look a region up by code very often, so this allocates no strings.
     #
     # @example
     #   Worldwide.region(code: "CA-QC").has_code?("PQ") == true
